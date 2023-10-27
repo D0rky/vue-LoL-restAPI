@@ -11,6 +11,7 @@ const props = defineProps({
     }),
   },
 })
+console.log(props.character) // Log the character data
 </script>
 
 <template>

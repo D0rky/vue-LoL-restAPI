@@ -7,24 +7,25 @@ const currentCharacter = ref(null)
 const firstLoad = ref(true)
 
 const api = useApi()
-const page = ref(1)
 
 const useCharacters = () => {
   const fetchCharacters = async () => {
-    const { data } = await api.instance.get('/cards', {
-      params: {
-        page: page.value,
-      },
-    })
-
-    characters.value.push(...data.cards)
-    page.value++
+    try {
+      const { data } = await api.instance.get('champion.json')
+      console.log(data) // Log the data to inspect its structure
+      characters.value = Object.values(data.data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
-  const fetchCharacter = async (id) => {
-    const { data } = await api.instance.get(`/cards/${id}`)
-    currentCharacter.value = data
-    console.log(data)
+  const fetchCharacter = async (championName) => {
+    try {
+      const { data } = await api.instance.get(`champion/${championName}.json`)
+      currentCharacter.value = data.data[championName]
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return {

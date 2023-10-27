@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://api.magicthegathering.io/v1/',
+  baseURL: 'http://ddragon.leagueoflegends.com/cdn/11.14.1/data/en_US/',
 })
 
 const useApi = () => {
