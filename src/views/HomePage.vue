@@ -45,7 +45,11 @@ onMounted(async () => {
       <BaseCard
         v-for="champion in champions"
         :key="champion.id"
-        :champion="champion"
+        :character="{
+          multiverseid: champion.id,
+          name: champion.name,
+          imageUrl: champion.image,
+        }"
       />
     </div>
   </main>

@@ -40,5 +40,8 @@
   "editor.quickSuggestions": {
     "comments": "on",
     "strings": "on"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }
